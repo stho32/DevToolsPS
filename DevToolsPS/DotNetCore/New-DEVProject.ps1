@@ -34,5 +34,10 @@ function New-DEVProject {
         Set-Location "$Name.Classes"
         dotnet new classlib
         Set-Location ..
+
+        dotnet sln "./$Name.sln" add "./$Name.BL/"
+        dotnet sln "./$Name.sln" add "./$Name.BL.Tests/"
+        dotnet sln "./$Name.sln" add "./$Name.Interfaces/"
+        dotnet sln "./$Name.sln" add "./$Name.Classes/"
     }
 }
