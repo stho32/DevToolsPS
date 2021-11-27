@@ -20,9 +20,17 @@ function New-DEVProject {
         dotnet new classlib
         Set-Location ..
 
+        mkdir "$Name.Console"
+        Set-Location "$Name.Console"
+        dotnet new console
+        Set-Location ..
+
         mkdir "$Name.BL.Tests"
         Set-Location "$Name.BL.Tests"
         dotnet new classlib
+        dotnet add package Microsoft.NET.Test.Sdk
+        dotnet add package xunit
+        dotnet add package xunit.runner.visualstudio
         Set-Location ..
 
         mkdir "$Name.Interfaces"
@@ -36,6 +44,7 @@ function New-DEVProject {
         Set-Location ..
 
         dotnet sln "./$Name.sln" add "./$Name.BL/"
+        dotnet sln "./$Name.sln" add "./$Name.Console/"
         dotnet sln "./$Name.sln" add "./$Name.BL.Tests/"
         dotnet sln "./$Name.sln" add "./$Name.Interfaces/"
         dotnet sln "./$Name.sln" add "./$Name.Classes/"
