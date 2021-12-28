@@ -14,6 +14,7 @@ function New-DEVProject {
         Set-Location $Name
 
         dotnet new sln
+        dotnet new gitignore
 
         mkdir "$Name.BL"
         Set-Location "$Name.BL"
