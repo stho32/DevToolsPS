@@ -42,6 +42,5 @@ function New-DEVProject {
         dotnet sln "./$Name.sln" add "./$Name.Console/"
         dotnet sln "./$Name.sln" add "./$Name.BL.Tests/"
         dotnet sln "./$Name.sln" add "./$Name.Interfaces/"
-        dotnet sln "./$Name.sln" add "./$Name.Classes/"
     }
 }
