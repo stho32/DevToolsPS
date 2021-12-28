@@ -38,11 +38,6 @@ function New-DEVProject {
         dotnet new classlib
         Set-Location ..
 
-        mkdir "$Name.Classes"
-        Set-Location "$Name.Classes"
-        dotnet new classlib
-        Set-Location ..
-
         dotnet sln "./$Name.sln" add "./$Name.BL/"
         dotnet sln "./$Name.sln" add "./$Name.Console/"
         dotnet sln "./$Name.sln" add "./$Name.BL.Tests/"
